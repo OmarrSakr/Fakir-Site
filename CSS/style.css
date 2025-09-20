@@ -604,19 +604,6 @@ h6 {
         font-size: 20px;
     }
 
-    .items a {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    .items a.active[href="#home_id"] {
-        font-weight: 500;
-        box-shadow: 0 0 5px rgba(255, 48, 91, 0.5);
-        border-radius: 4px;
-    }
-
-
-
     .hamburger span {
         width: 20px;
         height: 2px;

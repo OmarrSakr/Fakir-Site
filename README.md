@@ -7,19 +7,19 @@
 <p>
   <table>
     <tr>
-      <td><img class="badge" src="https://img.shields.io/github/stars/YourUsername/Fakir-Site?style=plastic&color=ff305b" alt="GitHub stars"></td>
-      <td><img class="badge" src="https://img.shields.io/github/forks/YourUsername/Fakir-Site?style=plastic&color=ff305b" alt="GitHub forks"></td>
+      <td><img class="badge" src="https://img.shields.io/github/stars/OmarrSakr/Fakir-Site?style=plastic&color=ff305b" alt="GitHub stars"></td>
+      <td><img class="badge" src="https://img.shields.io/github/forks/OmarrSakr/Fakir-Site?style=plastic&color=ff305b" alt="GitHub forks"></td>
       <td><img class="badge" src="https://komarev.com/ghpvc/?username=Fakir-Site&style=plastic&color=blue&label=Views" alt="Repo Views"></td>
     </tr>
     <tr>
-      <td><img class="badge" src="https://img.shields.io/github/issues-pr/YourUsername/Fakir-Site?color=orange&style=plastic" alt="Pull Requests"></td>
-      <td><img class="badge" src="https://img.shields.io/github/contributors/YourUsername/Fakir-Site?color=2b9348&style=plastic" alt="Contributors"></td>
-      <td><img class="badge" src="https://img.shields.io/github/license/YourUsername/Fakir-Site?style=plastic" alt="License"></td>
+      <td><img class="badge" src="https://img.shields.io/github/issues-pr/OmarrSakr/Fakir-Site?color=orange&style=plastic" alt="Pull Requests"></td>
+      <td><img class="badge" src="https://img.shields.io/github/contributors/OmarrSakr/Fakir-Site?color=2b9348&style=plastic" alt="Contributors"></td>
+      <td><img class="badge" src="https://img.shields.io/github/license/OmarrSakr/Fakir-Site?style=plastic" alt="License"></td>
     </tr>
     <tr>
-      <td><img class="badge" src="https://img.shields.io/github/last-commit/YourUsername/Fakir-Site?style=plastic" alt="Last Commit"></td>
-      <td><img class="badge" src="https://img.shields.io/github/repo-size/YourUsername/Fakir-Site?style=plastic" alt="Repo Size"></td>
-      <td><img class="badge" src="https://img.shields.io/github/languages/top/YourUsername/Fakir-Site?style=plastic" alt="Top Language"></td>
+      <td><img class="badge" src="https://img.shields.io/github/last-commit/OmarrSakr/Fakir-Site?style=plastic" alt="Last Commit"></td>
+      <td><img class="badge" src="https://img.shields.io/github/repo-size/OmarrSakr/Fakir-Site?style=plastic" alt="Repo Size"></td>
+      <td><img class="badge" src="https://img.shields.io/github/languages/top/OmarrSakr/Fakir-Site?style=plastic" alt="Top Language"></td>
     </tr>
   </table>
   <br>
@@ -27,18 +27,24 @@
   <br>
 
 [Live Demo](https://yourusername.github.io/Fakir-Site/) •
-[Documentation](https://github.com/YourUsername/Fakir-Site/wiki) •
-[Report Issues](https://github.com/YourUsername/Fakir-Site/issues)
+[Documentation](https://github.com/OmarrSakr/Fakir-Site/wiki) •
+[Report Issues](https://github.com/OmarrSakr/Fakir-Site/issues)
 
 </p>
 </div>
 
 **Fakir** is a professionally designed personal portfolio website built with modern web technologies (**HTML5**, **CSS3**, **JavaScript**). It features a clean, responsive design with smooth scrolling navigation, animated elements, and interactive sections to showcase professional services, projects, and personal brand effectively.
 
-<img src="./Fakir_1.png" alt="BuySpot Store Demo" width="600">
 
 ---
+<div align="center">
 
+## 📊 Project Stats
+
+- ⭐ **Average Rating**: 4.8/5
+- 🌐 **Visitors**: <img class="badge" style="vertical-align: middle;" src="https://komarev.com/ghpvc/?username=Fakir-Site&style=plastic&color=blue&label=Views" alt="Repo Views">
+
+--- 
 ## 🧑‍💻 Tech Stack
 
 <p>
@@ -48,6 +54,8 @@
   <img src="https://img.shields.io/badge/Font_Awesome-339AF0?style=flat&logo=fontawesome&logoColor=white" alt="Font Awesome">
   <img src="https://img.shields.io/badge/Google_Fonts-4285F4?style=flat&logo=googlefonts&logoColor=white" alt="Google Fonts">
 </p>
+
+</div>
 
 ---
 
@@ -192,7 +200,7 @@ Check out the live demo of **Fakir** at 👉 [Fakir Demo](https://yourusername.g
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YourUsername/Fakir-Site.git
+git clone https://github.com/OmarrSakr/Fakir-Site.git
 ```
 
 2. **Navigate to the project directory**

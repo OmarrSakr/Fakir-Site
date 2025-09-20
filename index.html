@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
     <!-- *Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- * Main stylesheet => A link between a page HTML and CSS -->
     <link rel="stylesheet" href="./CSS/style.css" />
 
@@ -439,43 +441,45 @@
     </div>
 
     <!-- !Contact Us -->
-    <div id="contact_id" class="contact">
+    <section id="contact_id" class="contact">
         <div class="container-contact">
             <div class="title-contact">
                 <h2>Contact Us</h2>
             </div>
-            <form id="contactForm" class="contact-form">
+            <form id="contactForm" class="contact-form"
+                action="https://api.sheetmonkey.io/form/76s3262kP8cAoVmCnpWEAN" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-name">
-                            <input type="text" placeholder="Your Name" class="form-name2" name="name" id="form_name" />
+                            <input type="text" placeholder="Your Name" class="form-name2" name="name" id="form_name"
+                                aria-required="true" />
                         </div>
-                        <div id="name-error" class="error-message"></div>
+                        <div id="name-error" class="error-message" role="alert"></div>
                     </div>
                     <div class="form-group">
                         <div class="form-email">
                             <input type="email" placeholder="Your Email" class="form-email2" name="email"
-                                id="form_email" />
+                                id="form_email" aria-required="true" />
                         </div>
-                        <div id="email-error" class="error-message"></div>
+                        <div id="email-error" class="error-message" role="alert"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-subject">
-                        <input type="text" placeholder="Subject" class="form-subject2" name="subject"
-                            id="form_subject" />
+                        <input type="text" placeholder="Subject" class="form-subject2" name="subject" id="form_subject"
+                            aria-required="true" />
                     </div>
-                    <div id="subject-error" class="error-message"></div>
+                    <div id="subject-error" class="error-message" role="alert"></div>
                 </div>
                 <div class="form-group">
                     <div class="form-textbox">
                         <textarea class="form-textbox2" placeholder="Your Message" name="message" id="control-message"
-                            rows="6"></textarea>
+                            rows="6" aria-required="true"></textarea>
                     </div>
-                    <div id="message-error" class="error-message"></div>
+                    <div id="message-error" class="error-message" role="alert"></div>
                 </div>
                 <div class="send-btn">
-                    <button class="btn" type="submit">
+                    <button class="btn" type="submit" aria-label="Send Message">
                         <span class="btn-text">Send Message</span>
                         <span class="btn-loader" style="display: none;">
                             <i class="fa-solid fa-spinner fa-spin"></i>
@@ -485,16 +489,16 @@
             </form>
 
             <!-- Success/Error Messages -->
-            <div id="form-success" class="form-message success-message" style="display: none;">
+            <div id="form-success" class="form-message success-message" style="display: none;" role="alert">
                 <i class="fa-solid fa-check-circle"></i>
                 <p>Thank you! Your message has been sent successfully. I'll get back to you soon.</p>
             </div>
-            <div id="form-error" class="form-message error-message-global" style="display: none;">
+            <div id="form-error" class="form-message error-message-global" style="display: none;" role="alert">
                 <i class="fa-solid fa-exclamation-circle"></i>
                 <p>Sorry, there was an error sending your message. Please try again.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- !Footer Page -->
     <div class="footer">

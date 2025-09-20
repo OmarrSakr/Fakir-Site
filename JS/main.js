@@ -366,12 +366,14 @@ function initTestimonialsSlider() {
 // ================================
 // CONTACT FORM VALIDATION
 // ================================
+
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     const nameField = document.getElementById('form_name');
     const emailField = document.getElementById('form_email');
     const subjectField = document.getElementById('form_subject');
     const messageField = document.getElementById('control-message');
+    let isSubmitting = false; // لمنع الإرسال المتكرر
 
     // Regex patterns
     const patterns = {
@@ -381,7 +383,7 @@ function initContactForm() {
         message: /^[\s\S]{10,1000}$/,
     };
 
-    // Error messages in English
+    // Error messages
     const errorMessages = {
         name: 'Name must be 2-50 characters (letters and spaces only)',
         email: 'Please enter a valid email address',
@@ -429,94 +431,140 @@ function initContactForm() {
     }
 
     // Real-time validation
-    nameField.addEventListener('input', () => {
-        validateField(nameField, patterns.name, errorMessages.name);
+    [nameField, emailField, subjectField, messageField].forEach(field => {
+        field.addEventListener('input', () => {
+            const fieldName = field.id.replace('form_', '').replace('control-', '');
+            validateField(field, patterns[fieldName], errorMessages[fieldName]);
+        });
     });
 
-    emailField.addEventListener('input', () => {
-        validateField(emailField, patterns.email, errorMessages.email);
-    });
-
-    subjectField.addEventListener('input', () => {
-        validateField(subjectField, patterns.subject, errorMessages.subject);
-    });
-
-    messageField.addEventListener('input', () => {
-        validateField(messageField, patterns.message, errorMessages.message);
-    });
-
-    // Form submission with Sheet Monkey API
-    contactForm.addEventListener('submit', function (e) {
+    // Form submission
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        if (isSubmitting) return; // منع الإرسال المتكرر
+
+        // Validate all fields
         const isNameValid = validateField(nameField, patterns.name, errorMessages.name);
         const isEmailValid = validateField(emailField, patterns.email, errorMessages.email);
         const isSubjectValid = validateField(subjectField, patterns.subject, errorMessages.subject);
         const isMessageValid = validateField(messageField, patterns.message, errorMessages.message);
 
         if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-            // Show loading state
+            isSubmitting = true; // بدء الإرسال
             const btnText = document.querySelector('.btn-text');
             const btnLoader = document.querySelector('.btn-loader');
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const successMsg = document.getElementById('form-success');
+            const formError = document.getElementById('form-error');
 
             btnText.style.display = 'none';
             btnLoader.style.display = 'inline-block';
             submitBtn.disabled = true;
 
+            // Store form values before reset
+            const formValues = {
+                Name: nameField.value,
+                Email: emailField.value,
+                Subject: subjectField.value,
+                Message: messageField.value
+            };
+
+            // Retry function
+            async function trySubmit(formData, retries = 2, delay = 1000) {
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        let data;
+                        // Try to parse JSON, but handle non-JSON responses
+                        try {
+                            data = await response.json();
+                        } catch (jsonError) {
+                            // If response is not JSON but status is OK, assume success
+                            if (response.ok) {
+                                data = { success: true }; // Assume success
+                            } else {
+                                throw new Error(`HTTP error! Status: ${response.status}`);
+                            }
+                        }
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+
+                        btnText.style.display = 'inline-block';
+                        btnLoader.style.display = 'none';
+                        submitBtn.disabled = false;
+                        isSubmitting = false;
+
+                        successMsg.style.display = 'flex';
+                        formError.style.display = 'none';
+                        contactForm.reset();
+                        [nameField, emailField, subjectField, messageField].forEach(field => hideError(field.id));
+
+                        // console.log('Form submitted successfully:', {
+                        //     ...formValues,
+                        //     Response: data
+                        // });
+
+                        setTimeout(() => {
+                            successMsg.style.display = 'none';
+                        }, 4000);
+
+                        return true; // Success
+                    } catch (error) {
+                        if (i < retries - 1) {
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            continue; // Retry after delay
+                        }
+                        throw error; // Throw error if retries are exhausted
+                    }
+                }
+            }
+
             // Submit to Sheet Monkey API
-            const formData = new FormData();
-            formData.append('Name', nameField.value);
-            formData.append('Email', emailField.value);
-            formData.append('Subject', subjectField.value);
-            formData.append('Message', messageField.value);
+            const formData = new FormData(contactForm);
+            try {
+                await trySubmit(formData);
+            } catch (error) {
+                btnText.style.display = 'inline-block';
+                btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+                isSubmitting = false;
 
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    btnText.style.display = 'inline-block';
-                    btnLoader.style.display = 'none';
-                    submitBtn.disabled = false;
+                formError.style.display = 'flex';
+                formError.querySelector('p').textContent = 
+                    error.message.includes('Failed to fetch') 
+                    ? 'No internet connection. Please check your network and try again.'
+                    : error.message.includes('500') 
+                    ? 'Server error. Please try again or contact support.'
+                    : 'Sorry, there was an error sending your message. Please try again.';
+                
+                setTimeout(() => {
+                    formError.style.display = 'none';
+                }, 4000);
 
-                    const successMsg = document.getElementById('form-success');
-                    const errorMsg = document.getElementById('form-error');
-                    successMsg.style.display = 'block';
-                    errorMsg.style.display = 'none';
-
-                    contactForm.reset();
-                    [nameField, emailField, subjectField, messageField].forEach((field) => hideError(field.id));
-
-                    setTimeout(() => {
-                        successMsg.style.display = 'none';
-                    }, 5000);
-
-                    console.log('Form submitted successfully to Sheet Monkey:', data);
-                })
-                .catch((error) => {
-                    btnText.style.display = 'inline-block';
-                    btnLoader.style.display = 'none';
-                    submitBtn.disabled = false;
-
-                    const errorMsg = document.getElementById('form-error');
-                    errorMsg.style.display = 'block';
-                    setTimeout(() => {
-                        errorMsg.style.display = 'none';
-                    }, 5000);
-
-                    console.error('Form submission error:', error);
-                });
+                console.error('Form submission error:', error);
+            }
         } else {
-            const errorMsg = document.getElementById('form-error');
-            errorMsg.style.display = 'block';
+            formError.style.display = 'flex';
+            formError.querySelector('p').textContent = 'Please fix the errors in the form and try again.';
             setTimeout(() => {
-                errorMsg.style.display = 'none';
-            }, 5000);
+                formError.style.display = 'none';
+            }, 4000);
         }
     });
 }
+
+// Initialize form when DOM is loaded
+document.addEventListener('DOMContentLoaded', initContactForm);
 
 // ================================
 // SCROLL ANIMATIONS & INTERSECTION OBSERVER
