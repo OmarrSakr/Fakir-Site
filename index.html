@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fokir Site</title>
+    <title>Fakir Site</title>
     <!-- *font Roboto Static from Google Fonts for paragraph  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
     <!-- *Font awesome -->
-    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- * Main stylesheet => A link between a page HTML and CSS -->
-    <link rel="stylesheet" href="./CSS/pagestyle.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
 
 </head>
 
@@ -35,7 +35,7 @@
                     <!-- *items => in NavBar =>margin_left -->
                     <div class="list">
                         <ul class="items">
-                            <li><a href="#home_id">Home</a></li>
+                            <li><a href="#home_id" class="home-link"></i> Home</a></li>
                             <li><a href="#about_id">About</a></li>
                             <li><a href="#services-id">Services</a></li>
                             <li><a href="#portfolio_id">Portfolio</a></li>
@@ -44,15 +44,24 @@
                             <li><a href="#contact_id">Contact</a></li>
                         </ul>
                     </div>
+                    <!-- *Hamburger menu for mobile -->
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="content-home">
                     <p>Hello i'm</p>
                     <h1>ALEX SMITH</h1>
-                    <div class="animated-text">Professional Web <span></span></div>
+                    <div class="animated-text">
+                        Professional Web <span class="typing-text"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- !about section -->
     <div id="about_id" class="about">
         <div class="container-about">
@@ -64,32 +73,28 @@
                 <div class="part-two">
                     <div class="about-me">
                         <h2>HELLO,</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris
-                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum.
+                        <p>I'm a passionate UI/UX Designer and Web Developer with over 5 years of experience creating
+                            beautiful and functional digital experiences. I specialize in modern web technologies and
+                            user-centered design principles to bring ideas to life.
                         </p>
                     </div>
                     <div class="profile-about">
                         <ul>
                             <li>
                                 <span>Name:</span>
-                                Rdam smith
+                                Alex Smith
                             </li>
                             <li>
                                 <span>Job Title:</span>
-                                UI/UX Designer
+                                UI/UX Designer & Developer
                             </li>
                             <li>
                                 <span>Age:</span>
-                                26 Year
+                                28 Years
                             </li>
                             <li>
                                 <span>Location:</span>
-                                United States, US
+                                New York, USA
                             </li>
                             <li>
                                 <span>Freelance:</span>
@@ -97,16 +102,16 @@
                             </li>
                             <li>
                                 <span>E-mail:</span>
-                                example@gmail.com
+                                alex.smith@example.com
                             </li>
                         </ul>
                     </div>
                     <div class="clear-fix"></div>
                     <div class="download-cv-btn">
-                        <a href="./HTML/index.html" class="download-cv"> Download Cv
+                        <a href="./files/cv.pdf" class="download-cv" download>Download CV
                             <i class="fa-solid fa-download"></i>
                         </a>
-                        <a href="#contact" class="hire-me"> Hire Me
+                        <a href="#contact_id" class="hire-me">Hire Me
                             <i class="fa-solid fa-paper-plane"></i>
                         </a>
                     </div>
@@ -115,6 +120,7 @@
             <div class="clear-fix"></div>
         </div>
     </div>
+
     <!-- !Our Services -->
     <div id="services-id" class="services">
         <div class="container-services">
@@ -122,38 +128,39 @@
                 <h2>Our Services</h2>
             </div>
             <div class="cards">
-                <div class="card">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
                     <p><i class="fa-solid fa-pen-ruler"></i></p>
                     <h3>UI/UX DESIGN</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ratione adipisci mollitia quis necstatibus.
+                    <p>Creating intuitive and engaging user interfaces with modern design principles
+                        and user-centered approach for optimal user experience.
                     </p>
                 </div>
-                <div class="card">
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
                     <p><i class="fa-solid fa-laptop-code"></i></p>
-                    <h3>APP DEVELOPMENT</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ratione adipisci mollitia quis necstatibus.
+                    <h3>WEB DEVELOPMENT</h3>
+                    <p>Building responsive and performant websites using latest web technologies
+                        like HTML5, CSS3, JavaScript, and modern frameworks.
                     </p>
                 </div>
-                <div class="card">
-                    <p> <i class="fa-solid fa-code-branch"></i></p>
-                    <h3>PRODUCT DESIGN</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ratione adipisci mollitia quis necstatibus.
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <p><i class="fa-solid fa-mobile-screen-button"></i></p>
+                    <h3>MOBILE APP DESIGN</h3>
+                    <p>Designing beautiful and functional mobile applications that provide seamless
+                        user experience across all devices and platforms.
                     </p>
                 </div>
-                <div class="card">
-                    <p> <i class="fa-solid fa-gears"></i></p>
-                    <h3>PRODUCT DESIGN</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ratione adipisci mollitia quis necstatibus.
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <p><i class="fa-solid fa-palette"></i></p>
+                    <h3>BRAND IDENTITY</h3>
+                    <p>Creating comprehensive brand identities including logos, color schemes,
+                        typography, and visual guidelines that reflect your brand values.
                     </p>
                 </div>
             </div>
             <div class="clear-fix"></div>
         </div>
     </div>
+
     <!-- !Our Portfolio -->
     <div id="portfolio_id" class="portfolio">
         <div class="container-portfolio">
@@ -162,58 +169,118 @@
             </div>
             <div class="btns">
                 <ul class="list-btns">
-                    <li class="btn">ALL</li>
-                    <li class="btn">GRAPHIC</li>
-                    <li class="btn">WEB DESIGN</li>
-                    <li class="btn">BRANDING</li>
+                    <li class="btn active" data-filter="all">ALL</li>
+                    <li class="btn" data-filter="graphic">GRAPHIC</li>
+                    <li class="btn" data-filter="web">WEB DESIGN</li>
+                    <li class="btn" data-filter="branding">BRANDING</li>
                 </ul>
             </div>
             <div class="cards-portfolio">
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/1.jpg" alt="image_1" />
+                <div class="card-portfolio" data-category="web">
+                    <img src="./Images/portfolio/1.jpg" alt="Web Design Project 1" />
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Website</h3>
+                        <p>Modern responsive e-commerce platform</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/1.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/2.jpg" alt="image_2" />
+                <div class="card-portfolio" data-category="graphic">
+                    <img src="./Images/portfolio/2.jpg" alt="Graphic Design Project 1" />
+                    <div class="portfolio-overlay">
+                        <h3>Brand Poster Design</h3>
+                        <p>Creative poster design for marketing</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/2.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/3.jpg" alt="image_3" />
+                <div class="card-portfolio" data-category="branding">
+                    <img src="./Images/portfolio/3.jpg" alt="Branding Project 1" />
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Identity</h3>
+                        <p>Complete branding solution</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/3.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/4.jpg" alt="image_4" />
+                <div class="card-portfolio" data-category="web">
+                    <img src="./Images/portfolio/4.jpg" alt="Web Design Project 2" />
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Website</h3>
+                        <p>Professional business website</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/4.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/5.jpg" alt="image_5" />
+                <div class="card-portfolio" data-category="graphic">
+                    <img src="./Images/portfolio/5.jpg" alt="Graphic Design Project 2" />
+                    <div class="portfolio-overlay">
+                        <h3>Logo Design</h3>
+                        <p>Creative logo design concepts</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/5.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-portfolio">
-                    <img src="./Images/portfolio/6.jpg" alt="image_6" />
+                <div class="card-portfolio" data-category="branding">
+                    <img src="./Images/portfolio/6.jpg" alt="Branding Project 2" />
+                    <div class="portfolio-overlay">
+                        <h3>Brand Guidelines</h3>
+                        <p>Comprehensive brand manual</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="view-link" data-img="./Images/portfolio/6.jpg"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="external-link"><i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="clear-fix"></div>
+            <!-- Image Modal -->
+            <div class="image-modal">
+                <span class="modal-close">&times;</span>
+                <img class="modal-content" src="" alt="Portfolio Image" />
+            </div>
         </div>
     </div>
+
     <!-- !Statistics -->
     <div id="statistics_id" class="statistics">
         <div class="container-statistics">
             <div class="list-statistics">
                 <ul class="icons-statistics">
-                    <li class="icon-statistics">
+                    <li class="icon-statistics" data-aos="fade-up" data-aos-delay="100">
                         <p><i class="fa-solid fa-users"></i></p>
-                        <h3 class="counter">200</h3>
-                        <h4>Team members</h4>
+                        <h3 class="counter" data-target="150">0</h3>
+                        <h4>Happy Clients</h4>
                     </li>
-                    <li class="icon-statistics">
+                    <li class="icon-statistics" data-aos="fade-up" data-aos-delay="200">
                         <p><i class="fa-solid fa-file"></i></p>
-                        <h3 class="counter">345</h3>
+                        <h3 class="counter" data-target="280">0</h3>
                         <h4>Complete Projects</h4>
                     </li>
-                    <li class="icon-statistics">
+                    <li class="icon-statistics" data-aos="fade-up" data-aos-delay="300">
                         <p><i class="fa-solid fa-cloud-arrow-down"></i></p>
-                        <h3 class="counter">1800</h3>
+                        <h3 class="counter" data-target="1500">0</h3>
                         <h4>Files Downloaded</h4>
                     </li>
-                    <li class="icon-statistics">
-                        <p><i class="fa-solid fa-mug-saucer"></i></p>
-                        <h3 class="counter">1200</h3>
+                    <li class="icon-statistics" data-aos="fade-up" data-aos-delay="400">
+                        <p><i class="fa-solid fa-code"></i></p>
+                        <h3 class="counter" data-target="50000">0</h3>
                         <h4>Lines Of Code</h4>
                     </li>
                 </ul>
@@ -221,36 +288,97 @@
             <div class="clear-fix"></div>
         </div>
     </div>
+
     <!-- !Client's Feedback -->
-    <div class="Feedback">
-        <div class="container-feedback">
-            <div class="title-feedback">
+    <div class="TestimonialsSection">
+        <div class="TestimonialsContainer">
+            <div class="TestimonialsTitle">
                 <h2>Client's Feedback</h2>
             </div>
-            <div class="frame-card">
-                <div class="card">
-                    <div class="photo-client">
-                        <img src="./Images/feedback.jpg"
-                            alt="A person with a
-                                brown beard and glasses is depicted with only his upper part visible, with a white background" />
-                    </div>
-                    <div class="section-two">
-                        <h3>Alex ander</h3>
-                        <a href="https://routeegy.github.io/Fokir/#"><i class="fa-solid fa-location-dot"></i>United</a>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident error reprehenderit
-                            delectus cum ipsam aliquid nostrum maxime eaque mollitia cumque magni, quia magnam quisquam,
-                            iure architecto doloremque ratione? Fugit, soluta Provident error reprehenderit.</p>
-                        <div class="review-rating">
-                            <p>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </p>
+
+            <div class="TestimonialsSlider">
+                <!-- Testimonial 1 -->
+                <div class="TestimonialCard active">
+                    <div class="TestimonialItem">
+                        <div class="ClientPhoto">
+                            <img src="./Images/Mohammed Ali.jpg" alt="Mohammed Ali" />
+                        </div>
+                        <div class="TestimonialContent">
+                            <h3>Mohammed Ali</h3>
+                            <a href="#"><i class="fa-solid fa-location-dot"></i>New York, USA</a>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident error reprehenderit
+                                delectus cum ipsam aliquid nostrum maxime eaque mollitia cumque magni, quia magnam
+                                quisquam, iure architecto doloremque ratione? Fugit, soluta.</p>
+                            <div class="RatingStars">
+                                <p>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Testimonial 2 -->
+                <div class="TestimonialCard">
+                    <div class="TestimonialItem">
+                        <div class="ClientPhoto">
+                            <img src="./Images/Lisa Martinez.jpg" alt="Lisa Martinez" />
+                        </div>
+                        <div class="TestimonialContent">
+                            <h3>Lisa Martinez</h3>
+                            <a href="#"><i class="fa-solid fa-location-dot"></i>London, UK</a>
+                            <p>Professional, creative, and delivers on time! The team understood our vision perfectly
+                                and transformed it into reality. Excellent communication throughout the project and
+                                amazing results that exceeded our expectations.</p>
+                            <div class="RatingStars">
+                                <p>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="TestimonialCard">
+                    <div class="TestimonialItem">
+                        <div class="ClientPhoto">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                                alt="Michael Chen" />
+                        </div>
+                        <div class="TestimonialContent">
+                            <h3>Michael Chen</h3>
+                            <a href="#"><i class="fa-solid fa-location-dot"></i>Tokyo, Japan</a>
+                            <p>Outstanding work with attention to every detail! The design is modern, user-friendly, and
+                                perfectly matches our brand. Great value for money and exceptional customer service
+                                throughout.</p>
+                            <div class="RatingStars">
+                                <p>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots Controls -->
+            <div class="DotsNavigation">
+                <div class="SliderDot active" onclick="currentSlide(1)"></div>
+                <div class="SliderDot" onclick="currentSlide(2)"></div>
+                <div class="SliderDot" onclick="currentSlide(3)"></div>
             </div>
         </div>
     </div>
@@ -261,43 +389,46 @@
                 <h2>Our Blog</h2>
             </div>
             <div class="cards-blog">
-                <div class="card-blog">
+                <div class="card-blog" data-aos="fade-up" data-aos-delay="100">
                     <div class="image-blog">
-                        <img src="./Images/blog/12.jpg"
-                            alt="A girl wearing a scarlet jacket, a colorful hat, and glasses is seen from behind" />
+                        <img src="./Images/blog/12.jpg" alt="Creative workspace with colorful elements" />
                     </div>
                     <div class="description">
-                        <div class="date-post">23 November, 2015</div>
-                        <h3>Web Design Blog Post</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ea,
-                            quis magnam deserunt eius incidunt repellat molestiae.
+                        <div class="date-post"><i class="fa-solid fa-calendar"></i> 23 November, 2024</div>
+                        <h3>Modern Web Design Trends</h3>
+                        <p data-text-limit="3">Discover the latest trends in web design for 2024, including minimalism,
+                            dark mode interfaces, and micro-interactions that enhance user experience.
                         </p>
                         <div class="post-read">READ MORE <i class="fa-solid fa-arrow-right-long"></i></div>
                     </div>
                 </div>
-                <div class="card-blog">
+                <div class="card-blog" data-aos="fade-up" data-aos-delay="200">
                     <div class="video-blog">
-                        <iframe width="354" height="198" allowfullscreen allow="autoplay; encrypted-media"
-                            src="https://www.youtube.com/embed/uVju5--RqtY?feature=oembed"></iframe>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/uVju5--RqtY?feature=oembed" allowfullscreen
+                                allow="autoplay; encrypted-media"></iframe>
+                        </div>
                     </div>
                     <div class="description">
-                        <div class="date-post">20 April, 2018</div>
-                        <h3>Development Blog Post</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ea,
-                            quis magnam deserunt eius incidunt repellat molestiae.
+                        <div class="date-post"><i class="fa-solid fa-calendar"></i> 15 December, 2024</div>
+                        <h3>UI/UX Design Process</h3>
+                        <p data-text-limit="3">Learn about the complete UI/UX design process from research and
+                            wireframing
+                            to prototyping and user testing for successful digital products.
                         </p>
                         <div class="post-read">READ MORE <i class="fa-solid fa-arrow-right-long"></i></div>
                     </div>
                 </div>
-                <div class="card-blog">
+                <div class="card-blog" data-aos="fade-up" data-aos-delay="300">
                     <div class="image-blog">
-                        <img src="./Images/blog/32.jpg" alt="A man wearing a suit and glasses" />
+                        <img src="./Images/blog/32.jpg" alt="Professional developer working" />
                     </div>
                     <div class="description">
-                        <div class="date-post">17 May, 2017</div>
-                        <h3>Full Width Blog Post</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ea,
-                            quis magnam deserunt eius incidunt repellat molestiae.
+                        <div class="date-post"><i class="fa-solid fa-calendar"></i> 08 January, 2025</div>
+                        <h3>Frontend Development Best Practices</h3>
+                        <p data-text-limit="3">Essential best practices for modern frontend development including
+                            performance optimization,
+                            accessibility, and maintainable code architecture.
                         </p>
                         <div class="post-read">READ MORE <i class="fa-solid fa-arrow-right-long"></i></div>
                     </div>
@@ -306,46 +437,83 @@
             <div class="clear-fix"></div>
         </div>
     </div>
+
     <!-- !Contact Us -->
     <div id="contact_id" class="contact">
         <div class="container-contact">
             <div class="title-contact">
                 <h2>Contact Us</h2>
             </div>
-            <div class="content">
-                <div class="form-name">
-                    <input type="text" placeholder="Name" class="form-name2" name="name" id="form_name" />
+            <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="form-name">
+                            <input type="text" placeholder="Your Name" class="form-name2" name="name" id="form_name" />
+                        </div>
+                        <div id="name-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-email">
+                            <input type="email" placeholder="Your Email" class="form-email2" name="email"
+                                id="form_email" />
+                        </div>
+                        <div id="email-error" class="error-message"></div>
+                    </div>
                 </div>
-                <div class="form-email">
-                    <input type="email" placeholder="Email" class="form-email2" name="email" id="form_email" />
+                <div class="form-group">
+                    <div class="form-subject">
+                        <input type="text" placeholder="Subject" class="form-subject2" name="subject"
+                            id="form_subject" />
+                    </div>
+                    <div id="subject-error" class="error-message"></div>
                 </div>
-                <div class="form-subject">
-                    <input type="text" placeholder="Subject" class="form-subject2" name="subject" id="form_subject" />
+                <div class="form-group">
+                    <div class="form-textbox">
+                        <textarea class="form-textbox2" placeholder="Your Message" name="message" id="control-message"
+                            rows="6"></textarea>
+                    </div>
+                    <div id="message-error" class="error-message"></div>
                 </div>
-                <div class="form-textbox">
-                    <textarea class="form-textbox2" placeholder="Message for me" name="message"
-                        id="control-message"></textarea>
+                <div class="send-btn">
+                    <button class="btn" type="submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
                 </div>
+            </form>
+
+            <!-- Success/Error Messages -->
+            <div id="form-success" class="form-message success-message" style="display: none;">
+                <i class="fa-solid fa-check-circle"></i>
+                <p>Thank you! Your message has been sent successfully. I'll get back to you soon.</p>
             </div>
-            <div class="send-btn">
-                <button class="btn" type="submit">Send Message</button>
+            <div id="form-error" class="form-message error-message-global" style="display: none;">
+                <i class="fa-solid fa-exclamation-circle"></i>
+                <p>Sorry, there was an error sending your message. Please try again.</p>
             </div>
         </div>
     </div>
+
     <!-- !Footer Page -->
     <div class="footer">
         <div class="container-footer">
             <div class="icons-footer">
                 <ul class="social-icons">
-                    <li class="icon"><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li class="icon"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li class="icon"><a href="#"><i class="fa-brands fa-google"></i></a></li>
-                    <li class="icon"><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                    <li class="icon"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li class="icon"><a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li class="icon"><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li class="icon"><a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
                 </ul>
             </div>
-            <p class="copy-right">Copy Right 2018 © By <span>Theme-fair</span> All Rights Reserved</p>
+            <p class="copy-right">Copyright 2025 © By <span> Sakr </span> All Rights Reserved</p>
         </div>
     </div>
+
+
+    <!-- JavaScript -->
+    <script src="./JS/main.js"></script>
 </body>
 
 </html>
