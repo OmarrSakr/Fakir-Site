@@ -26,7 +26,7 @@
   <b>Fakir</b>: A modern, responsive personal portfolio website showcasing professional services, projects, and expertise with smooth animations and elegant design.
   <br>
 
-[Live Demo](https://yourusername.github.io/Fakir-Site/) •
+[Live Demo](https://omarrsakr.github.io/Fakir-Site/) •
 [Documentation](https://github.com/OmarrSakr/Fakir-Site/wiki) •
 [Report Issues](https://github.com/OmarrSakr/Fakir-Site/issues)
 
@@ -61,7 +61,7 @@
 
 ## 🌐 Live Demo
 
-Check out the live demo of **Fakir** at 👉 [Fakir Demo](https://yourusername.github.io/Fakir-Site/)
+Check out the live demo of **Fakir** at 👉 [Fakir Demo](https://omarrsakr.github.io/Fakir-Site/)
 
 ---
 
