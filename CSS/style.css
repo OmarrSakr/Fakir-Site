@@ -91,7 +91,7 @@ h6 {
     height: 70px;
     background-color: transparent;
     transition: all 0.3s ease;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -192,7 +192,7 @@ h6 {
     cursor: pointer;
     gap: 4px;
     padding: 10px;
-    z-index: 100;
+    z-index: 9999;
 }
 
 .hamburger span {
@@ -1750,33 +1750,38 @@ h6 {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 48, 91, 0.3);
 }
-/* Image Modal */
+
+
+
+
+/* Ensure body doesn't scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Modal styles */
 .image-modal {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 9999; /* Increased to ensure it's above all elements */
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9); 
-    display: flex;
+    width: 100%;
+    height: 100%; /* Changed from 100vh to handle mobile better */
+    background: rgba(0, 0, 0, 0.9);
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-/* الصورة جوه المودال */
 .image-modal .modal-content {
     max-width: 90%;
-    max-height: 90vh; 
-    object-fit: contain; 
+    max-height: 90vh;
     border-radius: 10px;
     border: 3px solid #ff305b;
-    z-index: 2001;
+    z-index: 10000; /* Above modal */
 }
 
-/* زرار الـ X */
 .image-modal .modal-close {
     position: absolute;
     top: 20px;
@@ -1786,12 +1791,13 @@ h6 {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
-    z-index: 2002;
+    z-index: 10001; /* Above modal and content */
 }
 
 .image-modal .modal-close:hover {
     color: #ff305b;
 }
+
 
 
 /* ================================
@@ -1988,6 +1994,7 @@ h6 {
         height: 30px;
         font-size: 12px;
     }
+    
 }
 
 /* ================================
@@ -2033,6 +2040,7 @@ h6 {
     margin: 0 auto;
     text-align: center;
     position: relative;
+    z-index: 89;
 }
 
 .list-statistics {

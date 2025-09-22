@@ -88,13 +88,17 @@ if (hamburger && navMenu) {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 70;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth',
-            });
+        const href = this.getAttribute('href');
+        // Check if href is not just "#" and is a valid ID
+        if (href && href !== '#' && href.length > 1) {
+            const target = document.querySelector(href);
+            if (target) {
+                const offsetTop = target.offsetTop - 70;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth',
+                });
+            }
         }
     });
 });
@@ -154,7 +158,13 @@ class TypeWriter {
 function initPortfolioFilter() {
     const filterBtns = document.querySelectorAll('.btn[data-filter]');
     const portfolioItems = document.querySelectorAll('.card-portfolio');
+    const modal = document.querySelector('.image-modal');
+    const modalImg = document.querySelector('.image-modal .modal-content');
+    const modalClose = document.querySelector('.image-modal .modal-close');
+    const viewLinks = document.querySelectorAll('.portfolio-links .view-link');
+    const portfolioSection = document.querySelector('#portfolio_id'); // Select portfolio section
 
+    // Filter buttons functionality
     filterBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
             filterBtns.forEach((b) => b.classList.remove('active'));
@@ -180,35 +190,63 @@ function initPortfolioFilter() {
         });
     });
 
-    // Image Modal
-    const modal = document.querySelector('.image-modal');
-    const modalImg = document.querySelector('.image-modal .modal-content');
-    const modalClose = document.querySelector('.image-modal .modal-close');
-    const viewLinks = document.querySelectorAll('.portfolio-links .view-link');
-
+    // Image Modal functionality
     viewLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const imgSrc = link.getAttribute('data-img');
             modalImg.src = imgSrc;
-            modal.style.display = 'flex';
-            document.body.classList.add('modal-open'); // Disable scroll
+
+            // Hide body content during scroll to avoid flash
+            document.body.style.opacity = '0';
+
+            // Scroll to the top of portfolio section
+            if (portfolioSection) {
+                const offsetTop = portfolioSection.offsetTop - 70; // Adjust for navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'auto' // Instant scroll to avoid visible jump
+                });
+            }
+
+            // Open modal after scroll and restore body opacity
+            setTimeout(() => {
+                modal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+                document.documentElement.style.overflow = 'hidden';
+                modal.style.zIndex = '9999';
+                modalImg.style.zIndex = '10000';
+                modalClose.style.zIndex = '10001';
+                document.body.style.opacity = '1'; // Restore visibility
+            }, 150); 
         });
     });
 
+    // Close modal on close button click
     modalClose.addEventListener('click', () => {
         modal.style.display = 'none';
-        document.body.classList.remove('modal-open'); // Re-enable scroll
+        document.body.classList.remove('modal-open');
+        document.documentElement.style.overflow = '';
     });
 
+    // Close modal on clicking outside image
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
-            document.body.classList.remove('modal-open'); // Re-enable scroll
+            document.body.classList.remove('modal-open');
+            document.documentElement.style.overflow = '';
+        }
+    });
+
+    // Close modal on Esc key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            document.documentElement.style.overflow = '';
         }
     });
 }
-
 // ================================
 // COUNTER ANIMATION
 // ================================
@@ -359,6 +397,12 @@ function initTestimonialsSlider() {
             slideIndex++;
             showSlide(slideIndex);
             autoSlide();
+        }
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
         }
     });
 }
@@ -540,13 +584,13 @@ function initContactForm() {
                 isSubmitting = false;
 
                 formError.style.display = 'flex';
-                formError.querySelector('p').textContent = 
-                    error.message.includes('Failed to fetch') 
-                    ? 'No internet connection. Please check your network and try again.'
-                    : error.message.includes('500') 
-                    ? 'Server error. Please try again or contact support.'
-                    : 'Sorry, there was an error sending your message. Please try again.';
-                
+                formError.querySelector('p').textContent =
+                    error.message.includes('Failed to fetch')
+                        ? 'No internet connection. Please check your network and try again.'
+                        : error.message.includes('500')
+                            ? 'Server error. Please try again or contact support.'
+                            : 'Sorry, there was an error sending your message. Please try again.';
+
                 setTimeout(() => {
                     formError.style.display = 'none';
                 }, 4000);
