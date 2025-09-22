@@ -1750,32 +1750,33 @@ h6 {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 48, 91, 0.3);
 }
-
 /* Image Modal */
 .image-modal {
     display: none;
     position: fixed;
     z-index: 2000;
-    /* Increased to ensure it's above all elements */
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.9); 
+    display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
+/* الصورة جوه المودال */
 .image-modal .modal-content {
     max-width: 90%;
-    max-height: 80vh;
+    max-height: 90vh; 
+    object-fit: contain; 
     border-radius: 10px;
     border: 3px solid #ff305b;
     z-index: 2001;
-    /* Ensure image is above modal background */
 }
 
+/* زرار الـ X */
 .image-modal .modal-close {
     position: absolute;
     top: 20px;
@@ -1786,7 +1787,6 @@ h6 {
     cursor: pointer;
     transition: color 0.3s ease;
     z-index: 2002;
-    /* Ensure close button is above image */
 }
 
 .image-modal .modal-close:hover {
